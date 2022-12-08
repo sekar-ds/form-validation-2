@@ -1,0 +1,30 @@
+.formss.error input{
+    border-color: red;
+
+}
+.formss.succes input{
+    border-color:green;
+}
+small {
+    visibility: hidden;
+}
+.formss.error small{
+    visibility: visible;
+    color:red
+
+}
+.formss.succes small {
+    visibility: visible;
+    color:green;
+}
+p {
+    visibility: hidden;
+}
+.formss.error p{
+    visibility: visible;
+    color:red
+}
+.formss.succes p{
+    visibility: hidden;
+    color:green
+}
