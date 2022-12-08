@@ -4,25 +4,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Try Throw </title>
+    <title>Form validation</title>
+    <link rel="stylesheet" type="text/css" href="style1.css">
 </head>
 <body>
-    <form id="form">
+    <form id="form" class="forms">
         <lable>Username:</lable>
-        <input type="text" name="text" id="aname"><br>
-        <lable>Password:</lable>
-        <input type="password" name="pass" id="password"><br>
+        <input type="text" placeholder="Username" id="username" ><p id="demo">please fill the form</p><br>
+        
+        <lable>password:</lable>
+        <input type="password" placeholder="password" id="pass"><p id="demo1">please fill the password</p><br>
+    
         <lable>Re-password</lable>
-        <input type="password" name="pass1" id="password1"><br>
-        
-        <button >submit</button>
-        
+        <input type="password"  placeholder="Re-password" id="pass1"><p id="demo2">please fill the password</p><br>
+        <p id="demo4">password does not correct</p>
+        <small >Error</small><br>
+        <button id="sub">submit</button>
+        <button id="cler">Clear</button>
+
     </form>
+<script>
+    var forms = document.getElementById("form")
+    var uservalue = document.getElementById("username")
+    var passwordvalue = document.getElementById("pass")
+    var password1value = document.getElementById("pass1")
+    var button1 = document.getElementById("cler")
+    
 
-    <script src="script.js">
 
 
-    </script>
+
+    forms.addEventListener('submit', e=>{
+        e.preventDefault();
+        validation();
+    });
+    button1.addEventListener('click', e=>{
+        e.preventDefault();
+        cler();
+    });
+
+function cler(){
+       uservalue.value=""
+       passwordvalue.value=""
+       password1value.value=""
+       button1.innerHTML="All clear"
+       
+}
+    function validation(){
+        var values =uservalue.value.trim();
+        var password =passwordvalue.value.trim();
+        var Repassword =password1value.value.trim();
+        
+        
+
+        if(values == ""){
+            error(uservalue)
+            
+        }
+        else{
+            success(uservalue)
+        }
+        if(password == ""){
+            error(passwordvalue)
+        }
+        else{
+            success(passwordvalue)
+        }
+        if(Repassword == ""){
+            error(password1value)
+        }
+        else{
+            success(password1value)
+        }
+        
+}
+        
+    
+    function error(input){
+        var formcontrol = input.parentElement;
+        formcontrol.className="formss error small"
+        formcontrol.className="formss error p"
+        
+        
+    }
+    function success(input){
+        var formcontrol1 = input.parentElement;
+        formcontrol1.className="formss succes small"
+        var mess =document.querySelector("small")
+       
+        
+        mess.innerText="success"
+
+        
+    }
+    
+    
+
+
+
+</script>
+
     
 </body>
 </html>
